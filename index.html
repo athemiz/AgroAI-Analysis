@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>AgroGuia AI - Análise Estratégica 2025</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    table { width: 100%; }
+    #competitors_wrapper { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Análise Estratégica – AgroGuia AI (2025)</h1>
+  <section>
+    <h2>Concorrentes</h2>
+    <table id="competitors" class="display"></table>
+  </section>
+  <section>
+    <h2>Tamanho de Mercado</h2>
+    <canvas id="marketChart" width="400" height="200"></canvas>
+  </section>
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
