@@ -158,6 +158,20 @@
       margin-top: 5px;
     }
     
+    .pdf-btn {
+      display: inline-block;
+      background: #e83e8c;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .pdf-btn:hover {
+      background: #c53072;
+    }
+    
     .legend-market {
       font-size: 0.9em;
       color: #555;
@@ -208,9 +222,12 @@
 </head>
 <body>
   <div class="container">
-    <h1>Análise Estratégica – AgroGuia AI (2025)</h1>
+  <h1>Análise Estratégica – AgroGuia AI (2025)</h1>
     
     <nav class="navigation">
+      <div style="text-align:center; margin-bottom:10px;">
+        <a href="analise.pdf" target="_blank" class="pdf-btn">📄 Ver pesquisa completa (PDF)</a>
+      </div>
       <div class="nav-menu">
         <a href="#concorrentes" class="nav-item">Concorrentes</a>
         <a href="#mercado" class="nav-item">Tamanho de Mercado</a>
@@ -228,8 +245,8 @@
 
     <section id="concorrentes">
       <h2>🏢 Análise de Concorrência</h2>
-      <table id="competitors" class="display"></table>
-    </section>
+    <table id="competitors" class="display"></table>
+  </section>
 
     <section id="mercado">
       <h2>📊 Tamanho de Mercado</h2>
@@ -306,41 +323,41 @@
         </div>
       </div>
       <canvas id="connectivityChart"></canvas>
-    </section>
+  </section>
 
     <section id="monetizacao">
       <h2>💰 Modelos de Monetização</h2>
-      <table id="pricing" class="display"></table>
-    </section>
+    <table id="pricing" class="display"></table>
+  </section>
 
     <section id="swot">
       <h2>⚖️ Matriz SWOT</h2>
       <div id="swot-container" class="swot-grid"></div>
-    </section>
+  </section>
 
     <section id="benchmarks">
       <h2>🎯 Benchmarks de Sucesso e Fracasso</h2>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
         <div>
           <h3>✅ Sucessos</h3>
-          <ul id="bench-success"></ul>
+    <ul id="bench-success"></ul>
         </div>
         <div>
           <h3>❌ Fracassos</h3>
-          <ul id="bench-failure"></ul>
+    <ul id="bench-failure"></ul>
         </div>
       </div>
-    </section>
+  </section>
 
     <section id="redflags">
       <h2>⚠️ Red Flags e Mitigações</h2>
       <table id="redflags-table" class="display"></table>
-    </section>
+  </section>
 
     <section id="experimentos">
       <h2>🧪 Próximos Experimentos de Validação</h2>
-      <ol id="experiments"></ol>
-    </section>
+    <ol id="experiments"></ol>
+  </section>
 
     <section id="crescimento">
       <h2>📈 Crescimento da IA na Agricultura</h2>
@@ -350,7 +367,7 @@
     <section id="recomendacao">
       <h2>🎯 Recomendação Final</h2>
       <div id="recommendation-container"></div>
-    </section>
+  </section>
   </div>
 
   <script src="data.js"></script>
