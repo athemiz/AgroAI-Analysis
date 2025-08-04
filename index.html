@@ -8,219 +8,15 @@
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    * { box-sizing: border-box; }
-    body { 
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-      margin: 0; 
-      padding: 20px;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      color: #333;
-      line-height: 1.6;
-    }
-    
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      padding: 30px;
-    }
-    
-    h1 {
-      text-align: center;
-      color: #2c5530;
-      margin-bottom: 40px;
-      font-size: 2.5em;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    h2 {
-      color: #4a90e2;
-      border-bottom: 3px solid #4a90e2;
-      padding-bottom: 10px;
-      margin-top: 40px;
-    }
-    
-    h3 {
-      color: #5cb85c;
-      margin-top: 30px;
-    }
-    
-    .navigation {
-      position: sticky;
-      top: 20px;
-      background: white;
-      border-radius: 25px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      padding: 15px;
-      margin-bottom: 30px;
-      z-index: 1000;
-    }
-    
-    .nav-menu {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-    
-    .nav-item {
-      background: #4a90e2;
-      color: white;
-      padding: 8px 15px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-size: 0.9em;
-      transition: all 0.3s ease;
-    }
-    
-    .nav-item:hover {
-      background: #357abd;
-      transform: translateY(-2px);
-    }
-    
-    section {
-      margin-bottom: 50px;
-      padding: 20px;
-      background: #f8f9fa;
-      border-radius: 8px;
-      border-left: 5px solid #4a90e2;
-    }
-    
-    table { 
-      width: 100%; 
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    
-    table th {
-      background: #4a90e2;
-      color: white;
-      padding: 15px 10px;
-      text-align: left;
-    }
-    
-    table td {
-      padding: 12px 10px;
-      border-bottom: 1px solid #eee;
-    }
-    
-    table tr:hover {
-      background: #f0f8ff;
-    }
-    
-    .swot-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-      gap: 20px; 
-      margin-top: 20px;
-    }
-    
-    .swot-col { 
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      border-left: 5px solid #5cb85c;
-    }
-    
-    .swot-col:nth-child(2) { border-left-color: #d9534f; }
-    .swot-col:nth-child(3) { border-left-color: #f0ad4e; }
-    .swot-col:nth-child(4) { border-left-color: #5bc0de; }
-    
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin: 20px 0;
-    }
-    
-    .stat-card {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      border-top: 4px solid #4a90e2;
-    }
-    
-    .stat-number {
-      font-size: 2em;
-      font-weight: bold;
-      color: #4a90e2;
-    }
-    
-    .stat-label {
-      color: #666;
-      margin-top: 5px;
-    }
-    
-    .pdf-btn {
-      display: inline-block;
-      background: #e83e8c;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-    .pdf-btn:hover {
-      background: #c53072;
-    }
-    
-    .legend-market {
-      font-size: 0.9em;
-      color: #555;
-      margin-top: 15px;
-      line-height: 1.4;
-    }
-    
-    .segments-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-    
-    .segment-card {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      border-left: 5px solid #5cb85c;
-    }
-    
-    .recommendation-card {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 30px;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-    
-    .recommendation-card h3 {
-      color: white;
-      margin-top: 0;
-    }
-    
-    canvas {
-      max-height: 400px;
-      margin: 20px 0;
-    }
-    
-    @media (max-width: 768px) {
-      .container { padding: 15px; }
-      .nav-menu { flex-direction: column; }
-      .swot-grid { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo"><span class="mark">🌾</span><span>AgroGuia AI</span></div>
+      <button id="themeToggle" class="theme-toggle" aria-label="Alternar tema">🌓 Tema</button>
+    </div>
+  </header>
   <div class="container">
   <h1>Análise Estratégica – AgroGuia AI (2025)</h1>
     
@@ -239,14 +35,26 @@
         <a href="#redflags" class="nav-item">Red Flags</a>
         <a href="#experimentos" class="nav-item">Experimentos</a>
         <a href="#crescimento" class="nav-item">Crescimento IA</a>
+        <a href="#insights" class="nav-item">Insights</a>
         <a href="#recomendacao" class="nav-item">Recomendação</a>
       </div>
     </nav>
 
     <section id="concorrentes">
-      <h2>🏢 Análise de Concorrência</h2>
-    <table id="competitors" class="display"></table>
-  </section>
+      <h2>🏢 Análise de Concorrência com Medidor de Relevância</h2>
+      <div class="legend-recommendation" style="margin-bottom: 20px;">
+        <p><strong>Metodologia do Medidor de Relevância:</strong> Cada concorrente é avaliado em uma escala de 0-10 baseada em:</p>
+        <ul style="margin: 10px 0; padding-left: 20px;">
+          <li><strong>Sobreposição de Mercado (0-3):</strong> Foco no mesmo público-alvo</li>
+          <li><strong>Similaridade da Proposta de Valor (0-2):</strong> Oferece soluções similares</li>
+          <li><strong>Força de Distribuição (0-2):</strong> Capacidade de alcançar o mercado</li>
+          <li><strong>Recursos Financeiros (0-2):</strong> Capacidade de investimento e competição</li>
+          <li><strong>Barreira de Entrada (0-1):</strong> Facilidade para replicar nossa solução</li>
+        </ul>
+        <p><em>A tabela está ordenada por nível de ameaça (maior para menor). A coluna "Medidor de Relevância" contém análise detalhada de cada concorrente.</em></p>
+      </div>
+      <table id="competitors" class="display"></table>
+    </section>
 
     <section id="mercado">
       <h2>📊 Tamanho de Mercado</h2>
@@ -364,13 +172,27 @@
       <canvas id="growthChart"></canvas>
     </section>
 
+    <section id="insights">
+      <h2>🔍 Insights Importantes</h2>
+      <div id="insights-container" class="insights-grid"></div>
+      <div class="legend-recommendation" style="margin-top:16px">
+        <p>Fonte: <a href="analise.pdf" target="_blank">Análise Estratégica – AgroGuia AI (2025)</a></p>
+      </div>
+    </section>
+
     <section id="recomendacao">
       <h2>🎯 Recomendação Final</h2>
       <div id="recommendation-container"></div>
+      <div class="legend-recommendation">
+        <p><strong>✅ Go</strong> – Você tem validação suficiente (com dados, feedback de mercado ou tração inicial) para seguir com o desenvolvimento, investimento ou escala da ideia. <em>Exemplo:</em> testes com usuários mostraram forte adoção e disposição a pagar.</p>
+        <p><strong>❌ No-Go</strong> – Os sinais são claros de que a ideia não se sustenta — seja por falta de mercado, problemas técnicos insolúveis ou inviabilidade econômica. A recomendação é interromper o projeto. <em>Exemplo:</em> o problema não é relevante para os usuários ou já foi resolvido de forma mais eficiente por concorrentes.</p>
+        <p><strong>🔄 Pivot-Go</strong> – A ideia tem potencial, mas exige ajustes significativos (pivot) antes de seguir. Pode envolver mudar o público-alvo, o modelo de monetização, o canal de distribuição ou o core do produto. <em>Exemplo:</em> a tecnologia é boa, mas o canal de entrega precisa mudar de app para WhatsApp para atingir o público-alvo real.</p>
+      </div>
   </section>
   </div>
-
+  <button id="backToTop" title="Voltar ao topo">↑</button>
   <script src="data.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
+

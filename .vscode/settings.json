@@ -1,0 +1,12 @@
+{
+    "files.watcherExclude": {
+        "**/bin/**": true,
+        "**/buildOutput/**": true,
+        "**/obj/**": true
+    },
+    "files.exclude": {
+        "**/bin/**": true,
+        "**/buildOutput/**": true,
+        "**/obj/**": true
+    }
+}

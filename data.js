@@ -1,3 +1,10 @@
+// Critérios para o Medidor de Relevância (0-10):
+// 1. Sobreposição de Mercado (0-3): Foco no mesmo público-alvo
+// 2. Similaridade da Proposta de Valor (0-2): Oferece soluções similares
+// 3. Força de Distribuição (0-2): Capacidade de alcançar o mercado
+// 4. Recursos Financeiros (0-2): Capacidade de investimento e competição
+// 5. Barreira de Entrada (0-1): Facilidade para replicar nossa solução
+
 const competitors = [
   {
     nome: 'Agrosmart (BR)',
@@ -6,7 +13,19 @@ const competitors = [
     pontosFracos: 'Dependência de hardware aumenta custos; foco em médios/grandes produtores; requer conectividade de dados estável.',
     pricing: 'Freemium + assinatura para módulos avançados; custos adicionais por sensor.',
     distribuicao: 'Vendas diretas e parcerias com cooperativas; presença em várias culturas; reconhecida no Brasil e na América Latina.',
-    financiamento: 'Privada; informações públicas limitadas.'
+    financiamento: 'Privada; informações públicas limitadas.',
+    relevancia: {
+      score: 6.5,
+      nivel: 'Médio-Alto',
+      justificativa: 'Sobreposição parcial de mercado (foco em médios/grandes vs pequenos produtores), mas oferece detecção de pragas similar. Forte presença no Brasil.',
+      criterios: {
+        mercado: 2, // Foco diferente (médios vs pequenos)
+        proposta: 2, // Detecção de pragas + alertas similar
+        distribuicao: 2, // Forte rede de cooperativas
+        recursos: 1.5, // Recursos limitados conhecidos
+        barreira: 1 // Pode adaptar para pequenos produtores
+      }
+    }
   },
   {
     nome: 'Solinftec (BR/Global)',
@@ -15,7 +34,19 @@ const competitors = [
     pontosFracos: 'Voltada a grandes operações; custos altos; necessidade de hardware embarcado e conectividade contínua; UX complexa para pequenos produtores.',
     pricing: 'Assinatura anual e cobrança por hectare; venda de hardware.',
     distribuicao: 'Parcerias com usinas e grandes produtores; rede internacional.',
-    financiamento: 'Estimativas apontam captação de dezenas de milhões de dólares (informação não oficial).'
+    financiamento: 'Estimativas apontam captação de dezenas de milhões de dólares (informação não oficial).',
+    relevancia: {
+      score: 4.5,
+      nivel: 'Baixo-Médio',
+      justificativa: 'Mercado completamente diferente (grandes vs pequenos produtores). Recursos enormes, mas foco distinto reduz ameaça direta.',
+      criterios: {
+        mercado: 0.5, // Mercado totalmente diferente
+        proposta: 1, // Gestão operacional vs diagnóstico de pragas
+        distribuicao: 1, // Rede forte mas para grandes produtores
+        recursos: 2, // Recursos financeiros muito fortes
+        barreira: 0 // Difícil adaptar para pequenos produtores
+      }
+    }
   },
   {
     nome: 'Aegro (BR)',
@@ -24,7 +55,19 @@ const competitors = [
     pontosFracos: 'Foco em produtores médios; não possui IA avançada de detecção automática por foto; depende de uso via aplicativo ou computador.',
     pricing: 'Assinatura mensal por número de usuários ou áreas; planos escaláveis.',
     distribuicao: 'Vendas diretas e marketing digital; parcerias com cooperativas.',
-    financiamento: 'Fundada em 2016; recebeu investimentos de venture capital (SP Ventures); receita não divulgada.'
+    financiamento: 'Fundada em 2016; recebeu investimentos de venture capital (SP Ventures); receita não divulgada.',
+    relevancia: {
+      score: 5.5,
+      nivel: 'Médio',
+      justificativa: 'Tem monitoramento de pragas mas sem IA avançada. Foco em produtores médios, não pequenos. Poderia expandir para nosso mercado.',
+      criterios: {
+        mercado: 1.5, // Produtores médios vs pequenos
+        proposta: 1, // ERP + pragas vs foco em diagnóstico
+        distribuicao: 1.5, // Boa rede de cooperativas
+        recursos: 1, // Recursos moderados
+        barreira: 0.5 // Poderia adicionar IA de diagnóstico
+      }
+    }
   },
   {
     nome: 'Strider / Cropwise (Syngenta Digital) – BR',
@@ -33,7 +76,19 @@ const competitors = [
     pontosFracos: 'Foco em grandes clientes; integração com o ecossistema Syngenta pode restringir neutralidade; custos de licença; menor flexibilidade para culturas menores.',
     pricing: 'Assinatura por hectare + serviços de consultoria; inclui pacotes de insumos.',
     distribuicao: 'Distribuído via rede Syngenta; parcerias com revendas de defensivos; forte presença no Brasil e América Latina.',
-    financiamento: 'Como parte da Syngenta, possui robusto financiamento; valor de aquisição não divulgado.'
+    financiamento: 'Como parte da Syngenta, possui robusto financiamento; valor de aquisição não divulgado.',
+    relevancia: {
+      score: 5.0,
+      nivel: 'Médio',
+      justificativa: 'IA para pragas similar, mas foco em grandes clientes. Recursos enormes da Syngenta, mas mercado diferente limita ameaça direta.',
+      criterios: {
+        mercado: 1, // Grandes clientes vs pequenos produtores
+        proposta: 2, // IA para pragas muito similar
+        distribuicao: 1, // Rede forte mas para grandes
+        recursos: 2, // Recursos da Syngenta são enormes
+        barreira: -1 // Difícil sair do ecossistema Syngenta
+      }
+    }
   },
   {
     nome: 'RAImundo (Embrapa/MAPA & AzaP AI) – BR',
@@ -42,7 +97,19 @@ const competitors = [
     pontosFracos: 'Funciona apenas via texto (não inclui reconhecimento de imagem de pragas); qualidade das respostas depende de bases públicas; beta pode ter limitações de escalabilidade; dependência de apoio público.',
     pricing: 'Beta gratuito; versão final deve permanecer gratuita ou freemium orientada a políticas públicas.',
     distribuicao: 'Ministério da Agricultura e Embrapa; parcerias com cooperativas e associações; divulgação nacional.',
-    financiamento: 'Financiado por recursos públicos e AzaP AI; sem receitas comerciais no curto prazo.'
+    financiamento: 'Financiado por recursos públicos e AzaP AI; sem receitas comerciais no curto prazo.',
+    relevancia: {
+      score: 8.5,
+      nivel: 'Alto',
+      justificativa: 'MAIOR AMEAÇA: Mesmo público-alvo, canal similar (WhatsApp), apoio governamental massivo. Falta apenas reconhecimento de imagens.',
+      criterios: {
+        mercado: 3, // Exato mesmo mercado (pequenos produtores)
+        proposta: 1.5, // Assistência agrícola similar, mas sem imagens
+        distribuicao: 2, // Distribuição governamental nacional
+        recursos: 2, // Recursos públicos + apoio institucional
+        barreira: 0 // Pode facilmente adicionar reconhecimento de imagens
+      }
+    }
   },
   {
     nome: 'Auravant (AR/ES, LatAm)',
@@ -51,25 +118,61 @@ const competitors = [
     pontosFracos: 'Detecta estresse via imagens mas não faz diagnóstico preciso por foto; depende de internet.',
     pricing: 'Freemium com planos pagos por hectare e módulos extras.',
     distribuicao: 'Distribuição digital; programas com governos (por exemplo, Ministério da Agricultura da Argentina).',
-    financiamento: 'Recebeu investimentos da The Yield Lab; presença em vários países latinos.'
+    financiamento: 'Recebeu investimentos da The Yield Lab; presença em vários países latinos.',
+    relevancia: {
+      score: 6.0,
+      nivel: 'Médio-Alto',
+      justificativa: 'Foco em pequenos produtores similar, mas mercado geográfico diferente. Não tem diagnóstico preciso por foto ainda.',
+      criterios: {
+        mercado: 2.5, // Pequenos produtores, mas Argentina/Espanha
+        proposta: 1, // Monitoramento vs diagnóstico específico
+        distribuicao: 1.5, // Boa distribuição digital
+        recursos: 1, // Recursos limitados de startup
+        barreira: 0 // Poderia expandir para Brasil e adicionar IA
+      }
+    }
   },
   {
-    nome: 'Grão Direto / Agrofy (BR/AR)',
-    proposta: 'Marketplaces que digitalizam a comercialização de grãos e insumos, conectando produtores a compradores e fornecedores.',
+    nome: 'Grão Direto / Agrofy (BR/AR) – concorrência indireta',
+    proposta: 'Marketplaces que digitalizam a comercialização de grãos e insumos. Conectam produtores a compradores e fornecedores.',
     pontosFortes: 'Grande base de usuários; transparência de preços; reduzem custos de transação; ampliam acesso a insumos e canais de venda.',
     pontosFracos: 'Não oferecem suporte agronômico; riscos de liquidez e concentração; foco em culturas exportadoras; não atendem pragas.',
     pricing: 'Cobram comissão sobre transações ou planos de assinatura; revenue share.',
     distribuicao: 'Estratégia via marketplace online, marketing digital e parcerias com tradings; forte presença em soja e milho.',
-    financiamento: 'Grão Direto captou mais de R$ 50 mi; Agrofy captou >US$ 35 mi.'
+    financiamento: 'Venture capital; Grão Direto recebeu aportes de fundos brasileiros.',
+    relevancia: {
+      score: 2.5,
+      nivel: 'Baixo',
+      justificativa: 'Concorrência indireta. Foco em comercialização, não em assistência técnica. Pouca sobreposição de valor.',
+      criterios: {
+        mercado: 1, // Alguns produtores em comum
+        proposta: 0, // Marketplace vs assistência técnica
+        distribuicao: 1, // Boa base de usuários
+        recursos: 0.5, // Recursos moderados
+        barreira: 0 // Não compete diretamente
+      }
+    }
   },
   {
-    nome: 'Plantix (DE/Global)',
+    nome: 'Plantix Magic (DE/Global) – benchmark internacional',
     proposta: 'Aplicativo gratuito que usa IA para diagnosticar doenças e pragas a partir de fotos; traduz recomendações em diversos idiomas.',
-    pontosFortes: 'Aplicativo mais baixado por agricultores no mundo; transforma o celular em um médico de culturas, detectando pragas em segundos; apoio de instituições de pesquisa e ampla comunidade; integra fóruns entre agricultores.',
-    pontosFracos: 'Depende de smartphone e internet; dificuldades de monetização (gratuito); menos adaptado a cada região; não cobre aspectos financeiros da fazenda.',
+    pontosFortes: 'Descrito como "o aplicativo para agricultores mais baixado do mundo"; transforma o celular em um médico de culturas, detectando pragas em segundos; apoio de instituições de pesquisa e ampla comunidade; integra fóruns entre agricultores.',
+    pontosFracos: 'Depende de smartphone e internet; dificuldades de monetização (gratuito); base global, porém menos adaptado a cada região; não cobre aspectos financeiros da fazenda.',
     pricing: 'Modelo freemium; receita via anúncios, dados agronômicos e venda de soluções de insumos.',
-    distribuicao: 'Distribuição digital; parcerias com governos e ONGs em Ásia/África; >20 milhões de usuários.',
-    financiamento: 'Levantou capital de fundos como Atlantic Labs; sem dados recentes de receita.'
+    distribuicao: 'Distribuição digital; parcerias com governos e ONGs em Ásia/África; >20 M usuários.',
+    financiamento: 'Financiado por PEAT (Alemanha); dificuldades de monetização apesar da grande base.',
+    relevancia: {
+      score: 9.0,
+      nivel: 'Muito Alto',
+      justificativa: 'BENCHMARK DIRETO: Exatamente a mesma proposta (diagnóstico de pragas por foto). 20M+ usuários globais. Maior referência mundial.',
+      criterios: {
+        mercado: 3, // Mesmo mercado global de pequenos produtores
+        proposta: 2, // Proposta idêntica de diagnóstico por foto
+        distribuicao: 2, // Distribuição global massiva
+        recursos: 1, // Recursos limitados (dificuldades de monetização)
+        barreira: 1 // Já estabelecido globalmente
+      }
+    }
   }
 ];
 
