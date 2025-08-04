@@ -158,6 +158,13 @@
       margin-top: 5px;
     }
     
+    .legend-market {
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 15px;
+      line-height: 1.4;
+    }
+    
     .segments-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -245,6 +252,12 @@
         </div>
       </div>
       <canvas id="marketChart"></canvas>
+      <!-- Legenda TAM, SAM, SOM -->
+      <div class="legend-market">
+        <p><strong>TAM</strong> (Total Addressable Market): Mercado TOTAL de potenciais clientes/usuários que poderiam se beneficiar da solução.</p>
+        <p><strong>SAM</strong> (Serviceable Available Market): Parcela do TAM que está disponível/atingível considerando fatores como conectividade, renda, cultura etc.</p>
+        <p><strong>SOM</strong> (Serviceable Obtainable Market): Subconjunto do SAM que a AgroGuia AI espera realmente conquistar no curto prazo.</p>
+      </div>
       
       <h3>Estimativas Financeiras Detalhadas</h3>
       <div class="stats-grid">
@@ -321,7 +334,7 @@
 
     <section id="redflags">
       <h2>⚠️ Red Flags e Mitigações</h2>
-      <table id="redflags" class="display"></table>
+      <table id="redflags-table" class="display"></table>
     </section>
 
     <section id="experimentos">

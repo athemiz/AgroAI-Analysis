@@ -150,7 +150,7 @@ $(document).ready(function () {
   benchmarks.fracasso.forEach(b => failureList.append(`<li><strong>${b.nome}:</strong> ${b.licao}</li>`));
 
   // Red flags
-  const redTable = $('#redflags');
+  const redTable = $('#redflags-table');
   redTable.append('<thead><tr><th>Risco</th><th>Mitigação</th></tr></thead>');
   const redBody = $('<tbody></tbody>');
   redFlags.forEach(r => {
