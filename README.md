@@ -4,6 +4,12 @@ Página estática com visualização da análise estratégica de 2025. Contém:
 
 - Tabela interativa com comparativo de concorrentes.
 - Gráfico de barras com estimativas de mercado (TAM, SAM, SOM).
+- Tabela de modelos de monetização sugeridos.
+- Matriz SWOT com forças, fraquezas, oportunidades e ameaças.
+- Listas de benchmarks de sucesso e fracasso.
+- Tabela de red flags e respectivas mitigações.
+- Lista de próximos experimentos de validação.
+- Gráfico de linha com projeção de crescimento do mercado global de IA na agricultura.
 
 ## Como publicar no GitHub Pages
 1. Faça commit das alterações e envie para o branch `main`.

@@ -11,6 +11,8 @@
     body { font-family: Arial, sans-serif; margin: 40px; }
     table { width: 100%; }
     #competitors_wrapper { margin-top: 20px; }
+    .swot-grid { display: flex; flex-wrap: wrap; gap: 20px; }
+    .swot-col { flex: 1; min-width: 250px; }
   </style>
 </head>
 <body>
@@ -22,6 +24,33 @@
   <section>
     <h2>Tamanho de Mercado</h2>
     <canvas id="marketChart" width="400" height="200"></canvas>
+  </section>
+  <section>
+    <h2>Modelo de Monetização</h2>
+    <table id="pricing" class="display"></table>
+  </section>
+  <section>
+    <h2>Matriz SWOT</h2>
+    <div id="swot" class="swot-grid"></div>
+  </section>
+  <section>
+    <h2>Benchmarks</h2>
+    <h3>Sucessos</h3>
+    <ul id="bench-success"></ul>
+    <h3>Fracassos</h3>
+    <ul id="bench-failure"></ul>
+  </section>
+  <section>
+    <h2>Red Flags e Mitigações</h2>
+    <table id="redflags" class="display"></table>
+  </section>
+  <section>
+    <h2>Próximos Experimentos</h2>
+    <ol id="experiments"></ol>
+  </section>
+  <section>
+    <h2>Tendência de Crescimento da IA na Agricultura</h2>
+    <canvas id="growthChart" width="400" height="200"></canvas>
   </section>
   <script src="data.js"></script>
   <script src="main.js"></script>

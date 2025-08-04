@@ -70,3 +70,117 @@ const mercado = {
   valores: [3.9, 1.0, 0.1], // milhões de usuários
   descricao: 'Estimativas de mercado em milhões de agricultores familiares no Brasil'
 };
+
+const pricingModels = [
+  {
+    modelo: 'Assinatura mensal por hectare ou por usuário',
+    vantagens: 'Receita previsível; incentiva uso contínuo; ajustável por tamanho da propriedade.',
+    desvantagens: 'Requer educação financeira e bancarização; agricultores familiares podem resistir a pagamentos recorrentes; risco de churn.',
+    elasticidade: 'Preço baixo (R$ 10–20/mês) gera volume, mas margens apertadas; descontos para cooperativas podem impulsionar adoção.'
+  },
+  {
+    modelo: 'Pay-per-use (por foto analisada, alerta ou relatório)',
+    vantagens: 'Baixa barreira de entrada; paga-se apenas pelo que usar; facilita testes pilotos.',
+    desvantagens: 'Receita variável; usuários podem reduzir uso para economizar; difícil prever faturamento; uso esporádico limita impacto agronômico.',
+    elasticidade: 'Adequado para diagnóstico ocasional; preço de R$ 1–3 por foto é atraente; margens maiores por transação, porém volume incerto.'
+  },
+  {
+    modelo: 'Revenue share sobre insumos economizados ou produtividade',
+    vantagens: 'Alinha incentivos: AgroGuia é remunerada quando gera valor (redução de defensivos, aumento de rendimento).',
+    desvantagens: 'Requer medição robusta de economia de insumos ou aumento de produção; complexidade jurídica; riscos climáticos podem reduzir performance.',
+    elasticidade: 'Potencial de alta margem se comprovada economia (>R$ 50/ha); adequado para cooperativas; baixa elasticidade pois paga-se quando há ganhos.'
+  }
+];
+
+const swot = {
+  strengths: [
+    'Reconhecimento de pragas por foto aliado a alertas de irrigação e recomendações em áudio.',
+    'Uso de canal conhecido (WhatsApp/SMS) que exige pouca infraestrutura.',
+    'Potencial para gerar dados valiosos para cooperativas e órgãos públicos.',
+    'Pode reduzir uso de defensivos, gerando economia e apelo ambiental.'
+  ],
+  weaknesses: [
+    'Necessidade de construir e treinar modelo de IA robusto com amostras regionais.',
+    'Dependência de boa qualidade de foto; agricultores podem enviar imagens ruins.',
+    'Faltam dados de geolocalização e microclima para recomendações precisas.',
+    'Risco de sobrecarga de suporte se muitos usuários fizerem perguntas gerais.'
+  ],
+  opportunities: [
+    'Ausência de soluções completas para agricultura familiar abre espaço para liderança.',
+    'Aumento da conectividade rural e programas governamentais de digitalização.',
+    'Possibilidade de parceria com Embrapa e cooperativas para validação e distribuição.',
+    'Crescimento do mercado de IA agrícola (CAGR 26,3% até 2034).'
+  ],
+  threats: [
+    'Concorrência de RAImundo e futuros assistentes de IA gratuitos pelo governo.',
+    'Baixa adoção de tecnologia e alfabetização digital (apenas 26% tinham internet em 2017).',
+    'Riscos regulatórios quanto ao uso de dados e privacidade (LGPD).',
+    'Dependência do clima e eventos extremos pode prejudicar eficácia.'
+  ]
+};
+
+const benchmarks = {
+  sucesso: [
+    {
+      nome: 'Solinftec',
+      licao: 'Foco em eficiência operacional, suporte agronômico forte e modelo SaaS escalável geraram liderança em 9 M de acres.'
+    },
+    {
+      nome: 'Plantix',
+      licao: 'Simplicidade de uso e comunidade global permitiram diagnóstico de pragas por foto em segundos, distribuído gratuitamente.'
+    },
+    {
+      nome: 'RAImundo',
+      licao: 'Parcerias governo-startup e uso de WhatsApp alcançam escala com inclusão digital.'
+    }
+  ],
+  fracasso: [
+    {
+      nome: 'Hardware caro de monitoramento',
+      licao: 'Alto custo e falta de assistência impediram escala entre pequenos produtores.'
+    },
+    {
+      nome: 'Marketplaces de insumos sem confiança',
+      licao: 'Sem marca confiável, logística ou crédito rural integrado, a adoção foi baixa.'
+    },
+    {
+      nome: 'Apps de recomendação genérica',
+      licao: 'Falta de personalização regional ou validação científica resultou em baixa retenção.'
+    }
+  ]
+};
+
+const redFlags = [
+  {
+    risco: 'Falta de base de dados local para treinar o modelo de reconhecimento de pragas.',
+    mitigacao: 'Firmar convênios com Embrapa e universidades; usar aprendizado federado com consentimento dos usuários.'
+  },
+  {
+    risco: 'Adoção limitada devido à exclusão digital.',
+    mitigacao: 'Integrar com SMS e atendimento via telefone; desenvolver PWA leve que funcione offline; parcerias com operadoras para dados subsidiados.'
+  },
+  {
+    risco: 'Riscos de privacidade e LGPD.',
+    mitigacao: 'Implementar políticas de consentimento explícito; anonimizar dados; hospedar informações em servidores seguros; consultar advogado especializado.'
+  },
+  {
+    risco: 'Dependência de recursos de venture capital sem plano de monetização claro.',
+    mitigacao: 'Testar modelos híbridos de receita; buscar fomento público e parcerias com empresas de insumos.'
+  },
+  {
+    risco: 'Escalabilidade do suporte agronômico.',
+    mitigacao: 'Criar rede de agrônomos parceiros; usar IA generativa para questões gerais; implementar fórum comunitário moderado.'
+  }
+];
+
+const experimentos = [
+  'Piloto com cooperativa de 200 produtores por 3 meses medindo adoção, precisão dos diagnósticos, redução de defensivos e satisfação.',
+  'Parceria com Embrapa ou universidades para coletar 5 mil fotos de pragas e validar a acurácia do modelo de IA.',
+  'Campanha de inclusão digital com operadoras oferecendo planos de dados específicos e roadshow em sindicatos rurais.'
+];
+
+const crescimentoIA = {
+  labels: Array.from({ length: 11 }, (_, i) => 2024 + i),
+  valores: Array.from({ length: 11 }, (_, i) => +(4.7 * Math.pow(1.263, i)).toFixed(2)),
+  descricao: 'Projeção de mercado global de IA na agricultura (US$ bilhões) a 26,3% CAGR'
+};
