@@ -5,7 +5,8 @@ const competitors = [
     pontosFortes: 'Utiliza sensores IoT e machine learning para monitorar microclimas; armadilhas de pragas automatizadas enviam alertas; modelos preditivos ajudam a aplicar defensivos somente quando necessário.',
     pontosFracos: 'Dependência de hardware aumenta custos; foco em médios/grandes produtores; requer conectividade de dados estável.',
     pricing: 'Freemium + assinatura para módulos avançados; custos adicionais por sensor.',
-    distribuicao: 'Vendas diretas e parcerias com cooperativas; presença em várias culturas; reconhecida no Brasil e na América Latina.'
+    distribuicao: 'Vendas diretas e parcerias com cooperativas; presença em várias culturas; reconhecida no Brasil e na América Latina.',
+    financiamento: 'Privada; informações públicas limitadas.'
   },
   {
     nome: 'Solinftec (BR/Global)',
@@ -13,7 +14,8 @@ const competitors = [
     pontosFortes: 'Liderança global com mais de 9 milhões de acres monitorados em 11 países; monitora mais de 80% da cana-de-açúcar no Brasil; equipe de >800 engenheiros e agrônomos; forte P&D.',
     pontosFracos: 'Voltada a grandes operações; custos altos; necessidade de hardware embarcado e conectividade contínua; UX complexa para pequenos produtores.',
     pricing: 'Assinatura anual e cobrança por hectare; venda de hardware.',
-    distribuicao: 'Parcerias com usinas e grandes produtores; rede internacional.'
+    distribuicao: 'Parcerias com usinas e grandes produtores; rede internacional.',
+    financiamento: 'Estimativas apontam captação de dezenas de milhões de dólares (informação não oficial).'
   },
   {
     nome: 'Aegro (BR)',
@@ -21,7 +23,8 @@ const competitors = [
     pontosFortes: 'Simplifica controle de custos e mostra custo por hectare; ferramenta de monitoramento de pragas com geolocalização; permite emissão de notas e gestão financeira.',
     pontosFracos: 'Foco em produtores médios; não possui IA avançada de detecção automática por foto; depende de uso via aplicativo ou computador.',
     pricing: 'Assinatura mensal por número de usuários ou áreas; planos escaláveis.',
-    distribuicao: 'Vendas diretas e marketing digital; parcerias com cooperativas.'
+    distribuicao: 'Vendas diretas e marketing digital; parcerias com cooperativas.',
+    financiamento: 'Fundada em 2016; recebeu investimentos de venture capital (SP Ventures); receita não divulgada.'
   },
   {
     nome: 'Strider / Cropwise (Syngenta Digital) – BR',
@@ -29,7 +32,8 @@ const competitors = [
     pontosFortes: 'Forte apoio da multinacional Syngenta; integra dados de campo e mercado; grande base de clientes em soja, algodão e milho; tecnologia consolidada.',
     pontosFracos: 'Foco em grandes clientes; integração com o ecossistema Syngenta pode restringir neutralidade; custos de licença; menor flexibilidade para culturas menores.',
     pricing: 'Assinatura por hectare + serviços de consultoria; inclui pacotes de insumos.',
-    distribuicao: 'Distribuído via rede Syngenta; parcerias com revendas de defensivos; forte presença no Brasil e América Latina.'
+    distribuicao: 'Distribuído via rede Syngenta; parcerias com revendas de defensivos; forte presença no Brasil e América Latina.',
+    financiamento: 'Como parte da Syngenta, possui robusto financiamento; valor de aquisição não divulgado.'
   },
   {
     nome: 'RAImundo (Embrapa/MAPA & AzaP AI) – BR',
@@ -37,7 +41,8 @@ const competitors = [
     pontosFortes: 'Construído com foco em inclusão digital e linguagem acessível; interface via WhatsApp minimiza barreiras; gratuito; meta de 100 mil usuários no 1º ano; integra comércio eletrônico e georreferenciamento.',
     pontosFracos: 'Funciona apenas via texto (não inclui reconhecimento de imagem de pragas); qualidade das respostas depende de bases públicas; beta pode ter limitações de escalabilidade; dependência de apoio público.',
     pricing: 'Beta gratuito; versão final deve permanecer gratuita ou freemium orientada a políticas públicas.',
-    distribuicao: 'Ministério da Agricultura e Embrapa; parcerias com cooperativas e associações; divulgação nacional.'
+    distribuicao: 'Ministério da Agricultura e Embrapa; parcerias com cooperativas e associações; divulgação nacional.',
+    financiamento: 'Financiado por recursos públicos e AzaP AI; sem receitas comerciais no curto prazo.'
   },
   {
     nome: 'Auravant (AR/ES, LatAm)',
@@ -45,7 +50,8 @@ const competitors = [
     pontosFortes: 'Fácil uso via web/app; foca em pequenos e médios produtores na Argentina e Espanha; integração com dados climáticos; algumas funções gratuitas.',
     pontosFracos: 'Detecta estresse via imagens mas não faz diagnóstico preciso por foto; depende de internet.',
     pricing: 'Freemium com planos pagos por hectare e módulos extras.',
-    distribuicao: 'Distribuição digital; programas com governos (por exemplo, Ministério da Agricultura da Argentina).'
+    distribuicao: 'Distribuição digital; programas com governos (por exemplo, Ministério da Agricultura da Argentina).',
+    financiamento: 'Recebeu investimentos da The Yield Lab; presença em vários países latinos.'
   },
   {
     nome: 'Grão Direto / Agrofy (BR/AR)',
@@ -53,7 +59,8 @@ const competitors = [
     pontosFortes: 'Grande base de usuários; transparência de preços; reduzem custos de transação; ampliam acesso a insumos e canais de venda.',
     pontosFracos: 'Não oferecem suporte agronômico; riscos de liquidez e concentração; foco em culturas exportadoras; não atendem pragas.',
     pricing: 'Cobram comissão sobre transações ou planos de assinatura; revenue share.',
-    distribuicao: 'Estratégia via marketplace online, marketing digital e parcerias com tradings; forte presença em soja e milho.'
+    distribuicao: 'Estratégia via marketplace online, marketing digital e parcerias com tradings; forte presença em soja e milho.',
+    financiamento: 'Grão Direto captou mais de R$ 50 mi; Agrofy captou >US$ 35 mi.'
   },
   {
     nome: 'Plantix (DE/Global)',
@@ -61,7 +68,8 @@ const competitors = [
     pontosFortes: 'Aplicativo mais baixado por agricultores no mundo; transforma o celular em um médico de culturas, detectando pragas em segundos; apoio de instituições de pesquisa e ampla comunidade; integra fóruns entre agricultores.',
     pontosFracos: 'Depende de smartphone e internet; dificuldades de monetização (gratuito); menos adaptado a cada região; não cobre aspectos financeiros da fazenda.',
     pricing: 'Modelo freemium; receita via anúncios, dados agronômicos e venda de soluções de insumos.',
-    distribuicao: 'Distribuição digital; parcerias com governos e ONGs em Ásia/África; >20 milhões de usuários.'
+    distribuicao: 'Distribuição digital; parcerias com governos e ONGs em Ásia/África; >20 milhões de usuários.',
+    financiamento: 'Levantou capital de fundos como Atlantic Labs; sem dados recentes de receita.'
   }
 ];
 
@@ -183,4 +191,69 @@ const crescimentoIA = {
   labels: Array.from({ length: 11 }, (_, i) => 2024 + i),
   valores: Array.from({ length: 11 }, (_, i) => +(4.7 * Math.pow(1.263, i)).toFixed(2)),
   descricao: 'Projeção de mercado global de IA na agricultura (US$ bilhões) a 26,3% CAGR'
+};
+
+// Novos dados implementados baseados na análise
+
+const segmentosPrioritarios = [
+  {
+    segmento: 'Hortaliças e frutas',
+    descricao: 'Tomate, pimentão, batata e frutas tropicais',
+    problemas: 'Alta incidência de fungos e pragas',
+    mercado: 'Dominada por agricultores familiares'
+  },
+  {
+    segmento: 'Mandioca e raízes',
+    descricao: 'Culturas de subsistência',
+    problemas: 'Brocas e ácaros, perdas elevadas',
+    mercado: 'Importante para segurança alimentar'
+  },
+  {
+    segmento: 'Leite e pecuária familiar',
+    descricao: 'Produção leiteira e criação animal',
+    problemas: 'Mastite e pastagens degradadas',
+    mercado: 'Oportunidades para monitorar saúde animal'
+  },
+  {
+    segmento: 'Grãos (soja, milho, feijão)',
+    descricao: 'Pequenos produtores de grãos',
+    problemas: 'Lagartas e percevejos',
+    mercado: 'Adoção de tecnologia pode reduzir custos'
+  }
+];
+
+const dadosConectividade = {
+  conectividadeRural2017: 26,
+  conectividadeRural2025: 40,
+  agricultura_familiar_total: 3897408,
+  percentual_estabelecimentos: 77,
+  emprego_agricola: 67
+};
+
+const estimativasFinanceiras = {
+  tam_usuarios: 3.9, // milhões
+  tam_valor_anual: 936, // R$ milhões
+  sam_usuarios: 1.0, // milhões  
+  som_usuarios: 0.1, // milhões
+  perdas_pragas_brasil: 55, // R$ bilhões anuais
+  tam_america_latina: 3, // US$ bilhões estimado
+  perdas_globais_min: 20, // % perdas mínimas
+  perdas_globais_max: 40 // % perdas máximas
+};
+
+const recomendacaoFinal = {
+  decisao: 'Pivot-Go',
+  justificativa: 'A ideia tem potencial, mas exige ajustes antes de grandes investimentos. Há oportunidade real no mercado de agricultura familiar, mas é necessária diferenciação frente a iniciativas públicas (RAImundo) e redução das barreiras tecnológicas.',
+  diferenciais_necessarios: [
+    'Maior precisão no diagnóstico por foto vs soluções públicas',
+    'Dashboards acionáveis para cooperativas',
+    'Modelo de negócio sustentável (freemium → assinaturas)',
+    'Parcerias estratégicas com Embrapa e cooperativas'
+  ],
+  proximos_passos: [
+    'Validar MVP com cooperativa piloto',
+    'Construir dataset de pragas regionais',
+    'Definir modelo de monetização híbrido',
+    'Estabelecer parcerias institucionais'
+  ]
 };

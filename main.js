@@ -1,23 +1,38 @@
 $(document).ready(function () {
-  // Preenche a tabela de concorrentes
-  const headers = ['Nome', 'Proposta de valor', 'Pontos fortes', 'Pontos fracos / gaps', 'Modelo de pricing', 'Distribuição & tração'];
+  // Preenche a tabela de concorrentes com coluna de financiamento
+  const headers = ['Nome', 'Proposta de valor', 'Pontos fortes', 'Pontos fracos / gaps', 'Modelo de pricing', 'Distribuição & tração', 'Financiamento/Escala'];
   const table = $('#competitors');
   table.append('<thead><tr>' + headers.map(h => `<th>${h}</th>`).join('') + '</tr></thead>');
   const tbody = $('<tbody></tbody>');
   competitors.forEach(c => {
     tbody.append(
       `<tr>
-        <td>${c.nome}</td>
+        <td><strong>${c.nome}</strong></td>
         <td>${c.proposta}</td>
         <td>${c.pontosFortes}</td>
         <td>${c.pontosFracos}</td>
         <td>${c.pricing}</td>
         <td>${c.distribuicao}</td>
+        <td>${c.financiamento}</td>
       </tr>`
     );
   });
   table.append(tbody);
-  table.DataTable({ paging: false, searching: false });
+  table.DataTable({ 
+    paging: false, 
+    searching: true,
+    scrollX: true,
+    responsive: true,
+    columnDefs: [
+      { width: "15%", targets: 0 },
+      { width: "20%", targets: 1 },
+      { width: "15%", targets: 2 },
+      { width: "15%", targets: 3 },
+      { width: "10%", targets: 4 },
+      { width: "15%", targets: 5 },
+      { width: "10%", targets: 6 }
+    ]
+  });
 
   // Gráfico de mercado
   const ctx = document.getElementById('marketChart').getContext('2d');
@@ -62,13 +77,62 @@ $(document).ready(function () {
   pricingTable.append(pricingBody);
   pricingTable.DataTable({ paging: false, searching: false });
 
+  // Implementa os segmentos prioritários
+  const segmentsContainer = $('#segments-container');
+  segmentosPrioritarios.forEach(s => {
+    segmentsContainer.append(`
+      <div class="segment-card">
+        <h3>🌾 ${s.segmento}</h3>
+        <p><strong>Descrição:</strong> ${s.descricao}</p>
+        <p><strong>Problemas:</strong> ${s.problemas}</p>
+        <p><strong>Mercado:</strong> ${s.mercado}</p>
+      </div>
+    `);
+  });
+
+  // Gráfico de conectividade rural
+  const ctxConnectivity = document.getElementById('connectivityChart').getContext('2d');
+  new Chart(ctxConnectivity, {
+    type: 'line',
+    data: {
+      labels: ['2017', '2025 (Estimativa)'],
+      datasets: [{
+        label: 'Conectividade Rural (%)',
+        data: [dadosConectividade.conectividadeRural2017, dadosConectividade.conectividadeRural2025],
+        borderColor: '#5cb85c',
+        backgroundColor: 'rgba(92, 184, 92, 0.1)',
+        fill: true,
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100,
+          title: {
+            display: true,
+            text: 'Percentual de Conectividade (%)'
+          }
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Evolução da Conectividade Rural no Brasil'
+        }
+      }
+    }
+  });
+
   // Matriz SWOT
-  const swotDiv = $('#swot');
+  const swotDiv = $('#swot-container');
   const swotMap = {
-    strengths: 'Forças',
-    weaknesses: 'Fraquezas',
-    opportunities: 'Oportunidades',
-    threats: 'Ameaças'
+    strengths: '💪 Forças',
+    weaknesses: '⚠️ Fraquezas',
+    opportunities: '🚀 Oportunidades',
+    threats: '⚡ Ameaças'
   };
   Object.keys(swotMap).forEach(key => {
     const col = $('<div class="swot-col"></div>');
@@ -109,10 +173,13 @@ $(document).ready(function () {
         label: crescimentoIA.descricao,
         data: crescimentoIA.valores,
         borderColor: '#4caf50',
-        fill: false
+        backgroundColor: 'rgba(76, 175, 80, 0.1)',
+        fill: true,
+        tension: 0.4
       }]
     },
     options: {
+      responsive: true,
       scales: {
         y: {
           beginAtZero: true,
@@ -121,7 +188,59 @@ $(document).ready(function () {
             text: 'US$ bilhões'
           }
         }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Projeção do Mercado Global de IA na Agricultura (CAGR 26,3%)'
+        }
       }
     }
+  });
+
+  // Implementa a recomendação final
+  const recommendationContainer = $('#recommendation-container');
+  recommendationContainer.append(`
+    <div class="recommendation-card">
+      <h3>📋 Decisão: ${recomendacaoFinal.decisao}</h3>
+      <p><strong>Justificativa:</strong> ${recomendacaoFinal.justificativa}</p>
+      
+      <h4>🎯 Diferenciais Necessários:</h4>
+      <ul>
+        ${recomendacaoFinal.diferenciais_necessarios.map(d => `<li>${d}</li>`).join('')}
+      </ul>
+      
+      <h4>🚀 Próximos Passos:</h4>
+      <ul>
+        ${recomendacaoFinal.proximos_passos.map(p => `<li>${p}</li>`).join('')}
+      </ul>
+    </div>
+  `);
+
+  // Smooth scroll para navegação
+  $('.nav-item').on('click', function(e) {
+    e.preventDefault();
+    const target = $(this).attr('href');
+    $('html, body').animate({
+      scrollTop: $(target).offset().top - 100
+    }, 800);
+  });
+
+  // Adiciona animações de entrada
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  });
+
+  // Aplica animação a todas as seções
+  document.querySelectorAll('section').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(30px)';
+    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(section);
   });
 });
